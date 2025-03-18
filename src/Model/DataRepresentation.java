@@ -93,6 +93,25 @@ public class DataRepresentation {
         }
         return bits / (isoIec.get(toUnit) * 8);
     }
+    
+    public boolean isDecimal(String decimal){
+        long itspoint = 0;
+        for(int i=0; i<decimal.length(); i++){
+            if(itspoint>1){
+                return false;
+            }
+            if(Character.isLetter(decimal.charAt(i))){
+                return false;
+            }
+            if(decimal.charAt(i)=='.'){
+                itspoint++;
+            }
+            if(decimal.charAt(i)==' '){
+                return false;
+            }
+        }
+       return true;
+    }
 
     public void setUnit(String unit) {
         this.unit = unit;

@@ -58,6 +58,17 @@ public class DataRepresentationController {
     void convertUnits(ActionEvent event) {
         String fromUnitString = this.getFromUnit();
         String toUnitString = this.getToUnit();
+        
+        if (txtFromUnit.getText().equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "No ha ingresado el valor a convertir", ButtonType.CLOSE);
+            alert.showAndWait();
+            return;
+        }
+        if (!dataRepresentation.isDecimal(txtFromUnit.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "No se permiten letras o espacios en blanco.", ButtonType.CLOSE);
+            alert.showAndWait();
+            return;
+        }
 
         if (txtFromUnit.getText() != null) {
             if (cboFromUnit.getValue() != null) {
