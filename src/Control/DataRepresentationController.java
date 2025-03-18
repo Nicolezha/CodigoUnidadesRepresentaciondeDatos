@@ -70,7 +70,8 @@ public class DataRepresentationController {
             return;
         }
 
-        if (txtFromUnit.getText() != null) {
+        // Corregimiento, era cboToUnit, en vez de txtFromUnit :c (unico cambio).
+        if (cboToUnit.getValue() != null) {
             if (cboFromUnit.getValue() != null) {
                 if (txtFromUnit.getText().isEmpty()) {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Ingrese la cantidad a convertir", ButtonType.CLOSE);
@@ -88,10 +89,14 @@ public class DataRepresentationController {
                     }
                 }
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Seleccione la unidad de la cantidad", ButtonType.CLOSE);
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Seleccione la unidad de la cantidad a convertir", ButtonType.CLOSE);
                 alert.showAndWait();
                 this.resetCboToUnit();
             }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Seleccione la unidad a convertir de la cantidad", ButtonType.CLOSE);
+            alert.showAndWait();
+            this.resetCboToUnit();
         }
     }
 
