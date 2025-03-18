@@ -92,11 +92,13 @@ public class DataRepresentationController {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Seleccione la unidad de la cantidad a convertir", ButtonType.CLOSE);
                 alert.showAndWait();
                 this.resetCboToUnit();
+                return;
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Seleccione la unidad a convertir de la cantidad", ButtonType.CLOSE);
             alert.showAndWait();
             this.resetCboToUnit();
+            return;
         }
     }
 
